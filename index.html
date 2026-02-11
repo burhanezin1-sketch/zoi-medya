@@ -11,7 +11,7 @@
         :root {
             --bg-color: #050505;
             --text-color: #ffffff;
-            --accent-red: #ff2a2a; /* Neon Kırmızı */
+            --accent-red: #ff2a2a;
             --border-color: rgba(255, 255, 255, 0.1);
             --card-bg: rgba(20, 20, 20, 0.6);
         }
@@ -86,6 +86,7 @@
             font-size: 0.9rem;
             transition: 0.3s;
             background: rgba(255, 42, 42, 0.1);
+            cursor: pointer;
         }
 
         .contact-btn:hover {
@@ -234,9 +235,9 @@
         }
 
         .service-card .num {
-            font-size: 4rem; /* Sayı boyutu */
+            font-size: 4rem;
             font-weight: 900;
-            color: rgba(255, 255, 255, 0.03); /* Silik renk */
+            color: rgba(255, 255, 255, 0.03);
             position: absolute;
             top: 10px;
             right: 20px;
@@ -361,6 +362,67 @@
             user-select: none;
         }
 
+        /* CHAT MODAL STYLES (YENİ EKLENEN KISIM) */
+        .chat-modal-overlay {
+            display: none; /* Başlangıçta gizli */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .chat-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .chat-box {
+            width: 90%;
+            max-width: 500px;
+            height: 70vh;
+            background: #000;
+            border: 1px solid var(--accent-red);
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 0 50px rgba(255, 42, 42, 0.2);
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .chat-modal-overlay.active .chat-box {
+            transform: scale(1);
+        }
+
+        .close-chat {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+        .close-chat:hover {
+            color: var(--accent-red);
+        }
+
+        .chat-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -371,6 +433,18 @@
     </style>
 </head>
 <body>
+
+    <div class="chat-modal-overlay" id="chatModal">
+        <div class="chat-box">
+            <span class="close-chat" onclick="closeChat()">&times;</span>
+            
+            <iframe 
+                src="BURAYA_N8N_CHAT_URL_GELECEK" 
+                class="chat-iframe">
+            </iframe>
+            
+        </div>
+    </div>
 
     <header>
         <div class="logo">ZOİ<span>.</span></div>
@@ -394,7 +468,8 @@
             <span>DEĞİŞMEK ÜZERE.</span>
         </h1>
         <p>Premium markalar sıradan ajanslarla çalışmaz. Geleceğin dijital stratejilerini bugünden kuruyoruz.</p>
-        <a href="mailto:zoimedya@gmail.com" class="contact-btn" style="width: fit-content; margin-top: 20px; font-size: 1.1rem; padding: 15px 40px;">Strateji Görüşmesi Al</a>
+        
+        <a href="#" onclick="openChat(); return false;" class="contact-btn" style="width: fit-content; margin-top: 20px; font-size: 1.1rem; padding: 15px 40px;">Strateji Görüşmesi Al</a>
     </section>
 
     <div class="marquee">
@@ -461,7 +536,7 @@
             <p style="color:#aaa; font-size:1.1rem; margin-bottom: 30px;">
                 AI Agent sistemlerimiz, işletmenizin elinde bulunacak en büyük güçtür. Hızlı cevap, güçlü imaj ve kesintisiz satış sağlar. Bizi diğer ajanslardan ayıran en büyük özellik budur.
             </p>
-            <a href="mailto:zoimedya@gmail.com" class="contact-btn">Demoyu İncele</a>
+            <a href="#" onclick="openChat(); return false;" class="contact-btn">Demoyu İncele</a>
         </div>
         <div class="ai-visual">
             <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop" alt="AI Technology">
@@ -527,6 +602,30 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
+        });
+
+        // CHAT MODAL FONKSİYONLARI (YENİ)
+        function openChat() {
+            const modal = document.getElementById('chatModal');
+            modal.style.display = 'flex'; // Önce display aç
+            setTimeout(() => {
+                modal.classList.add('active'); // Sonra animasyon sınıfını ekle
+            }, 10);
+        }
+
+        function closeChat() {
+            const modal = document.getElementById('chatModal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300); // Animasyon bitince gizle
+        }
+
+        // Modal dışına tıklayınca kapatma özelliği
+        document.getElementById('chatModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeChat();
+            }
         });
     </script>
 </body>
