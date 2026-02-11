@@ -3,200 +3,258 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZOİ Medya | Premium Digital Agency</title>
+<title>ZOİ Medya | Growth Agency</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--bg:#050505;
+--text:#ffffff;
+--card:#111;
+--accent:#7f5af0;
+}
+
+.light{
+--bg:#f5f5f5;
+--text:#111;
+--card:#ffffff;
+--accent:#7f5af0;
+}
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{background:#050505;color:white;overflow-x:hidden;scroll-behavior:smooth;}
+
+body{
+background:var(--bg);
+color:var(--text);
+transition:0.4s;
+scroll-behavior:smooth;
+}
 
 nav{
 position:fixed;width:100%;padding:20px 10%;
 display:flex;justify-content:space-between;align-items:center;
-background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);z-index:1000;
+backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.5);
+z-index:1000;
 }
-nav h2{font-weight:900;letter-spacing:2px;}
-nav a{color:white;text-decoration:none;margin-left:20px;opacity:0.8;}
+
+nav h2{font-weight:900;}
+
+nav div{display:flex;align-items:center;}
+
+nav a{
+color:var(--text);
+text-decoration:none;
+margin-left:20px;
+opacity:0.8;
+}
+
 nav a:hover{opacity:1;}
 
+.toggle{
+margin-left:20px;
+cursor:pointer;
+padding:8px 15px;
+border-radius:20px;
+background:var(--accent);
+color:white;
+font-size:0.8rem;
+}
+
 .hero{
-height:100vh;display:flex;align-items:center;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 padding:0 10%;
-background:url('https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-position:relative;
+background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
 }
-.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7);}
-.hero-content{position:relative;z-index:2;max-width:700px;}
+
 .hero h1{
-font-size:4rem;font-weight:900;
+font-size:4rem;
 background:linear-gradient(90deg,#7f5af0,#00f5ff);
--webkit-background-clip:text;-webkit-text-fill-color:transparent;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
-.hero p{margin-top:20px;color:#ccc;font-size:1.2rem;}
+
+.hero p{
+margin-top:20px;
+color:#aaa;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
+}
+
 .btn{
-margin-top:30px;padding:15px 35px;border-radius:50px;
-border:none;background:linear-gradient(90deg,#7f5af0,#00f5ff);
-color:white;font-weight:600;cursor:pointer;
+margin-top:30px;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+background:var(--accent);
+color:white;
+cursor:pointer;
 }
 
-section{padding:120px 10%;}
-h2{font-size:2.8rem;margin-bottom:50px;}
+section{
+padding:120px 10%;
+}
 
-.services,.portfolio{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+h2{
+text-align:center;
+margin-bottom:60px;
+font-size:2.5rem;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 }
 
 .card{
-background:#111;padding:40px;border-radius:20px;
-transition:0.4s;opacity:0;transform:translateY(40px);
-}
-.card.show{opacity:1;transform:translateY(0);}
-.card:hover{transform:translateY(-10px);box-shadow:0 0 30px rgba(127,90,240,0.4);}
-
-.stats{
-display:flex;justify-content:space-around;text-align:center;flex-wrap:wrap;
-}
-.stat{margin:20px;}
-.stat h3{font-size:3rem;color:#7f5af0;}
-
-.portfolio img{
-width:100%;border-radius:15px;
+background:var(--card);
+padding:40px;
+border-radius:20px;
 transition:0.4s;
-}
-.portfolio img:hover{transform:scale(1.05);}
-
-.cta{
-background:linear-gradient(90deg,#7f5af0,#00f5ff);
-text-align:center;padding:80px 20px;border-radius:20px;
+opacity:0;
+transform:translateY(40px);
 }
 
-form{
-max-width:600px;margin:auto;display:flex;flex-direction:column;gap:20px;
+.card.show{
+opacity:1;
+transform:translateY(0);
 }
-input,textarea{
-padding:15px;border-radius:10px;border:none;
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(127,90,240,0.3);
 }
-textarea{resize:none;height:120px;}
 
-footer{text-align:center;padding:50px;color:#777;}
+footer{
+text-align:center;
+padding:60px;
+background:var(--card);
+}
 
-/* WhatsApp Button */
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-bottom:40px;
+}
+
 .whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;color:white;
-width:60px;height:60px;border-radius:50%;
-display:flex;align-items:center;justify-content:center;
-font-size:28px;text-decoration:none;
-box-shadow:0 0 15px rgba(0,0,0,0.4);
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
 }
-
-/* Scroll animation */
-.fade{opacity:0;transform:translateY(40px);transition:0.6s;}
-.fade.show{opacity:1;transform:translateY(0);}
 </style>
 </head>
+
 <body>
 
 <nav>
 <h2>ZOİ</h2>
 <div>
 <a href="#services">Hizmetler</a>
-<a href="#portfolio">Projeler</a>
+<a href="#about">Hakkımızda</a>
 <a href="#contact">İletişim</a>
+<div class="toggle" onclick="toggleMode()">Mode</div>
 </div>
 </nav>
 
 <div class="hero">
-<div class="hero-content fade">
-<h1>Markanı Geleceğe Taşı</h1>
-<p>AI otomasyon, performans reklamları ve premium dijital strateji ile işletmeni büyüt.</p>
-<a href="#contact"><button class="btn">Strateji Görüşmesi Al</button></a>
+<div>
+<h1>Dijitalde Gücü Ele Geçir</h1>
+<p>Veri, performans reklamları ve AI sistemleri ile markanı büyüt.</p>
+<a href="#contact"><button class="btn">Başlayalım</button></a>
 </div>
 </div>
 
 <section id="services">
 <h2>Hizmetlerimiz</h2>
-<div class="services">
-<div class="card fade">Dijital Pazarlama</div>
-<div class="card fade">AI Agent & Otomasyon</div>
-<div class="card fade">Sosyal Medya Yönetimi</div>
-<div class="card fade">Web & Marka Tasarımı</div>
+<div class="grid">
+<div class="card">
+<h3>🚀 Performans Reklam</h3>
+<p>Meta & Google Ads ile maksimum dönüşüm.</p>
+</div>
+<div class="card">
+<h3>🤖 AI Otomasyon</h3>
+<p>WhatsApp bot ve CRM sistemleri.</p>
+</div>
+<div class="card">
+<h3>📱 Sosyal Medya</h3>
+<p>Stratejik içerik ve marka konumlandırma.</p>
+</div>
+<div class="card">
+<h3>🌐 Web Tasarım</h3>
+<p>Dönüşüm odaklı premium siteler.</p>
+</div>
 </div>
 </section>
 
-<section>
-<h2>Rakamlarla ZOİ</h2>
-<div class="stats">
-<div class="stat"><h3 class="counter" data-target="120">0</h3><p>% Ortalama ROI</p></div>
-<div class="stat"><h3 class="counter" data-target="50">0</h3><p>Mutlu Müşteri</p></div>
-<div class="stat"><h3>24/7</h3><p>AI Otomasyon</p></div>
-</div>
-</section>
-
-<section id="portfolio">
-<h2>Projelerimiz</h2>
-<div class="portfolio">
-<img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80">
-<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80">
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80">
-</div>
-</section>
-
-<section>
-<div class="cta fade">
-<h2>Hazırsan Başlayalım</h2>
-<p>İşletmenin kaderini değiştirelim.</p>
-<a href="#contact"><button class="btn">İletişime Geç</button></a>
+<section id="about">
+<h2>Hakkımızda</h2>
+<div class="card show">
+<p>ZOİ Medya, performans ve yapay zeka odaklı büyüme ajansıdır. Amacımız işletmeleri sistemli ve sürdürülebilir şekilde büyütmektir.</p>
 </div>
 </section>
 
 <section id="contact">
 <h2>İletişim</h2>
-
-<form name="contact" method="POST" data-netlify="true">
-<input type="hidden" name="form-name" value="contact">
-<input type="text" name="name" placeholder="Adınız" required>
-<input type="email" name="email" placeholder="Email" required>
-<textarea name="message" placeholder="Mesajınız" required></textarea>
-<button type="submit" class="btn">Gönder</button>
-</form>
-
+<div class="card show">
+<p>Email: info@zoi-medya.com</p>
+<p>WhatsApp: +90 5XX XXX XX XX</p>
+</div>
 </section>
 
 <footer>
-© 2026 ZOİ Medya — Premium Digital Agency
+<div class="footer-grid">
+<div>
+<h3>ZOİ</h3>
+<p>Premium Growth Agency</p>
+</div>
+<div>
+<h4>Hizmetler</h4>
+<p>Reklam</p>
+<p>AI</p>
+<p>Web</p>
+</div>
+<div>
+<h4>İletişim</h4>
+<p>info@zoi-medya.com</p>
+</div>
+</div>
+<p>© 2026 ZOİ Medya</p>
 </footer>
 
 <a href="https://wa.me/905000000000" class="whatsapp">💬</a>
 
 <script>
-
-/* Scroll Reveal */
-const faders=document.querySelectorAll('.fade');
-window.addEventListener('scroll',()=>{
-faders.forEach(el=>{
-const rect=el.getBoundingClientRect();
-if(rect.top<window.innerHeight-100){el.classList.add('show');}
-});
-});
-
-/* Counter Animation */
-const counters=document.querySelectorAll('.counter');
-counters.forEach(counter=>{
-counter.innerText='0';
-const update=()=>{
-const target=+counter.getAttribute('data-target');
-const c=+counter.innerText;
-const increment=target/100;
-if(c<target){
-counter.innerText=Math.ceil(c+increment);
-setTimeout(update,20);
-}else{
-counter.innerText=target+"+";
+function toggleMode(){
+document.body.classList.toggle("light");
 }
-};
-update();
+
+const cards=document.querySelectorAll(".card");
+
+window.addEventListener("scroll",()=>{
+cards.forEach(card=>{
+const rect=card.getBoundingClientRect();
+if(rect.top<window.innerHeight-100){
+card.classList.add("show");
+}
+});
 });
 </script>
 
