@@ -1,262 +1,544 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZOİ Medya | Growth Agency</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOİ MEDYA | Premium AI & Digital Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-:root{
---bg:#050505;
---text:#ffffff;
---card:#111;
---accent:#7f5af0;
-}
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-color: #ffffff;
+            --accent-primary: #7f5af0;
+            --accent-secondary: #00f5ff;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.03);
+        }
 
-.light{
---bg:#f5f5f5;
---text:#111;
---card:#ffffff;
---accent:#7f5af0;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
 
-body{
-background:var(--bg);
-color:var(--text);
-transition:0.4s;
-scroll-behavior:smooth;
-}
+        /* SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
 
-nav{
-position:fixed;width:100%;padding:20px 10%;
-display:flex;justify-content:space-between;align-items:center;
-backdrop-filter:blur(10px);
-background:rgba(0,0,0,0.5);
-z-index:1000;
-}
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-nav h2{font-weight:900;}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-nav div{display:flex;align-items:center;}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
 
-nav a{
-color:var(--text);
-text-decoration:none;
-margin-left:20px;
-opacity:0.8;
-}
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-nav a:hover{opacity:1;}
+        nav a:hover {
+            color: white;
+        }
 
-.toggle{
-margin-left:20px;
-cursor:pointer;
-padding:8px 15px;
-border-radius:20px;
-background:var(--accent);
-color:white;
-font-size:0.8rem;
-}
+        .contact-btn {
+            padding: 10px 25px;
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
 
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:0 10%;
-background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
-}
+        .contact-btn:hover {
+            background: var(--accent-primary);
+            box-shadow: 0 0 15px rgba(127, 90, 240, 0.5);
+        }
 
-.hero h1{
-font-size:4rem;
-background:linear-gradient(90deg,#7f5af0,#00f5ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-.hero p{
-margin-top:20px;
-color:#aaa;
-max-width:600px;
-margin-left:auto;
-margin-right:auto;
-}
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            max-width: 900px;
+        }
 
-.btn{
-margin-top:30px;
-padding:15px 35px;
-border:none;
-border-radius:50px;
-background:var(--accent);
-color:white;
-cursor:pointer;
-}
+        .hero h1 span {
+            display: block;
+            color: #444; /* Pasif renk */
+            transition: 0.5s;
+        }
+        
+        .hero h1 span.highlight {
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-section{
-padding:120px 10%;
-}
+        .hero p {
+            font-size: 1.2rem;
+            color: #888;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
 
-h2{
-text-align:center;
-margin-bottom:60px;
-font-size:2.5rem;
-}
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(127,90,240,0.2) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+            animation: pulse 5s infinite alternate;
+        }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
+        @keyframes pulse {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
 
-.card{
-background:var(--card);
-padding:40px;
-border-radius:20px;
-transition:0.4s;
-opacity:0;
-transform:translateY(40px);
-}
+        /* MARQUEE (Kayan Yazı) */
+        .marquee {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            background: #0a0a0a;
+        }
 
-.card.show{
-opacity:1;
-transform:translateY(0);
-}
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(127,90,240,0.3);
-}
+        .marquee span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin: 0 40px;
+            text-transform: uppercase;
+        }
 
-footer{
-text-align:center;
-padding:60px;
-background:var(--card);
-}
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
 
-.footer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-margin-bottom:40px;
-}
+        /* GENERAL SECTION STYLES */
+        section {
+            padding: 100px 5%;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-text-decoration:none;
-}
-</style>
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: #888;
+            max-width: 500px;
+        }
+
+        /* SERVICES GRID (Olay Yeri Tarzı Grid) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            border-top: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
+        }
+
+        .service-card {
+            background: transparent;
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 40px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            group;
+        }
+
+        .service-card:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-card .num {
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+            display: block;
+            font-family: monospace;
+        }
+
+        .service-card i {
+            font-size: 2rem;
+            color: #333;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            transition: 0.4s;
+        }
+
+        .service-card:hover i {
+            color: var(--accent-secondary);
+            transform: scale(1.2);
+        }
+
+        /* AI AGENT SECTION (Özel Vurgu) */
+        .ai-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            background: linear-gradient(45deg, rgba(5,5,5,1) 0%, rgba(20,20,20,1) 100%);
+        }
+
+        .ai-content h2 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .ai-content p {
+            color: #aaa;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .ai-visual {
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,245,255,0.1) 0%, transparent 60%);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .ai-visual i {
+            font-size: 8rem;
+            color: rgba(255,255,255,0.05);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* PROCESS SECTION */
+        .process-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .process-step {
+            display: flex;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+
+        .process-step:hover {
+            background: rgba(255,255,255,0.02);
+            padding-left: 20px;
+        }
+
+        .step-num {
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.05);
+            margin-right: 40px;
+            line-height: 1;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-secondary);
+        }
+
+        .step-content p {
+            color: #888;
+            max-width: 600px;
+        }
+
+        /* CONTACT / FOOTER */
+        footer {
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 30px;
+        }
+
+        .footer-btn {
+            font-size: 1.2rem;
+            padding: 20px 50px;
+            background: white;
+            color: black;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .footer-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+
+        .copyright {
+            margin-top: 80px;
+            color: #444;
+            font-size: 0.8rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .ai-section { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            nav { display: none; } /* Mobil menü basitleştirildi */
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
-<h2>ZOİ</h2>
-<div>
-<a href="#services">Hizmetler</a>
-<a href="#about">Hakkımızda</a>
-<a href="#contact">İletişim</a>
-<div class="toggle" onclick="toggleMode()">Mode</div>
-</div>
-</nav>
+    <header>
+        <div class="logo">ZOİ</div>
+        <nav>
+            <ul>
+                <li>Hizmetler</li>
+                <li>Süreç</li>
+                <li>AI Agent</li>
+            </ul>
+        </nav>
+        <a href="#contact" class="contact-btn">İletişime Geç</a>
+    </header>
 
-<div class="hero">
-<div>
-<h1>Dijitalde Gücü Ele Geçir</h1>
-<p>Veri, performans reklamları ve AI sistemleri ile markanı büyüt.</p>
-<a href="#contact"><button class="btn">Başlayalım</button></a>
-</div>
-</div>
+    <section class="hero">
+        <div class="hero-glow"></div>
+        <h1>
+            <span>İŞLETMENİZİN</span>
+            <span class="highlight">KADERİ</span>
+            <span>DEĞİŞMEK ÜZERE.</span>
+        </h1>
+        <p>Premium markalar sıradan ajanslarla çalışmaz. Geleceğin dijital stratejilerini bugünden kuruyoruz.</p>
+        <a href="#contact" class="contact-btn" style="width: fit-content; margin-top: 20px;">Strateji Görüşmesi Al</a>
+    </section>
 
-<section id="services">
-<h2>Hizmetlerimiz</h2>
-<div class="grid">
-<div class="card">
-<h3>🚀 Performans Reklam</h3>
-<p>Meta & Google Ads ile maksimum dönüşüm.</p>
-</div>
-<div class="card">
-<h3>🤖 AI Otomasyon</h3>
-<p>WhatsApp bot ve CRM sistemleri.</p>
-</div>
-<div class="card">
-<h3>📱 Sosyal Medya</h3>
-<p>Stratejik içerik ve marka konumlandırma.</p>
-</div>
-<div class="card">
-<h3>🌐 Web Tasarım</h3>
-<p>Dönüşüm odaklı premium siteler.</p>
-</div>
-</div>
-</section>
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>• DİJİTAL PAZARLAMA • AI OTOMASYON • WEB TASARIM • SOSYAL MEDYA • DİJİTAL PAZARLAMA • AI OTOMASYON • WEB TASARIM • SOSYAL MEDYA</span>
+        </div>
+    </div>
 
-<section id="about">
-<h2>Hakkımızda</h2>
-<div class="card show">
-<p>ZOİ Medya, performans ve yapay zeka odaklı büyüme ajansıdır. Amacımız işletmeleri sistemli ve sürdürülebilir şekilde büyütmektir.</p>
-</div>
-</section>
+    <section id="services">
+        <div class="section-header">
+            <h2>Hizmetlerimiz</h2>
+            <p>İşletmenizin tam potansiyeline ulaşması için sunduğumuz çözümler.</p>
+        </div>
 
-<section id="contact">
-<h2>İletişim</h2>
-<div class="card show">
-<p>Email: info@zoi-medya.com</p>
-<p>WhatsApp: +90 5XX XXX XX XX</p>
-</div>
-</section>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="num">01</span>
+                <h3>Dijital Pazarlama</h3>
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <div class="service-card">
+                <span class="num">02</span>
+                <h3>Sosyal Medya Yönetimi</h3>
+                <i class="fas fa-hashtag"></i>
+            </div>
+            <div class="service-card">
+                <span class="num">03</span>
+                <h3>PR & Reklam Danışmanlığı</h3>
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="service-card">
+                <span class="num">04</span>
+                <h3>Sanatçı Dijital Stratejisi</h3>
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="service-card" style="border-bottom: 1px solid var(--accent-primary);">
+                <span class="num" style="color:#00f5ff">05</span>
+                <h3 style="color:#fff">AI Agent Sistemleri</h3>
+                <i class="fas fa-robot" style="color:#00f5ff"></i>
+            </div>
+            <div class="service-card">
+                <span class="num">06</span>
+                <h3>AI Otomasyon Sistemleri</h3>
+                <i class="fas fa-cogs"></i>
+            </div>
+            <div class="service-card">
+                <span class="num">07</span>
+                <h3>Grafik Tasarım</h3>
+                <i class="fas fa-pen-nib"></i>
+            </div>
+            <div class="service-card">
+                <span class="num">08</span>
+                <h3>Web Tasarım</h3>
+                <i class="fas fa-code"></i>
+            </div>
+        </div>
+    </section>
 
-<footer>
-<div class="footer-grid">
-<div>
-<h3>ZOİ</h3>
-<p>Premium Growth Agency</p>
-</div>
-<div>
-<h4>Hizmetler</h4>
-<p>Reklam</p>
-<p>AI</p>
-<p>Web</p>
-</div>
-<div>
-<h4>İletişim</h4>
-<p>info@zoi-medya.com</p>
-</div>
-</div>
-<p>© 2026 ZOİ Medya</p>
-</footer>
+    <section class="ai-section">
+        <div class="ai-content">
+            <h2>Siz Uyurken Bile<br>Müşteri Kazanın.</h2>
+            <p>AI Agent sistemlerimiz, işletmenizin elinde bulunacak en büyük güçtür. Hızlı cevap, güçlü imaj ve kesintisiz satış sağlar. Bizi diğer ajanslardan ayıran en büyük özellik budur.</p>
+            <a href="#" class="contact-btn">Demoyu İncele <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="ai-visual">
+            <i class="fas fa-brain"></i>
+            </div>
+    </section>
 
-<a href="https://wa.me/905000000000" class="whatsapp">💬</a>
+    <section id="process">
+        <div class="section-header">
+            <h2>Çalışma Sürecimiz</h2>
+        </div>
+        
+        <div class="process-container">
+            <div class="process-step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Kurulum & Entegrasyon</h3>
+                    <p>Hesap bağlantıları, reklam paneli ve güvenlik ayarları tamamlanır. İşletme ayarları yapılandırılır.</p>
+                </div>
+            </div>
 
-<script>
-function toggleMode(){
-document.body.classList.toggle("light");
-}
+            <div class="process-step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>İlk Ay & Öğrenme</h3>
+                    <p>Reklamlar öğrenme sürecine girer. İlk veriler analiz edilir ve en iyi reklam seti belirlenerek optimize edilir.</p>
+                </div>
+            </div>
 
-const cards=document.querySelectorAll(".card");
+            <div class="process-step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Büyüme & Markalaşma</h3>
+                    <p>Markalaşma etkisi netleşir. Gerçekçi sonuçlar görülmeye başlanır ve ölçekleme (scaling) yapılır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-window.addEventListener("scroll",()=>{
-cards.forEach(card=>{
-const rect=card.getBoundingClientRect();
-if(rect.top<window.innerHeight-100){
-card.classList.add("show");
-}
-});
-});
-</script>
+    <footer id="contact">
+        <div class="footer-cta">
+            <h2>İşletmenizin Kaderini<br>Değiştirmeye Hazır Mısınız?</h2>
+            <a href="mailto:bugra@daotalent.co" class="footer-btn">Hemen Başla</a>
+        </div>
+        <div class="copyright">
+            [span_9](start_span)© 2026 ZOİ Medya —[span_9](end_span) Buğra Keçeli
+        </div>
+    </footer>
 
+    <script>
+        // Basit Scroll Animasyonu
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Animasyon eklenecek elementler
+        document.querySelectorAll('.service-card, .process-step, .ai-content').forEach((el) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
