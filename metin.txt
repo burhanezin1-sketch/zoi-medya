@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOİ Medya | Premium Digital Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* LOADER */
+        .loader {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            font-size: 3rem;
+            font-weight: 900;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader span {
+            background: linear-gradient(90deg, #7f5af0, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; letter-spacing: 30px; }
+            100% { opacity: 1; letter-spacing: 10px; }
+        }
+
+        /* Glow Background */
+        .glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(127, 90, 240, 0.15) 0%, transparent 70%);
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: -1;
+            transform: translate(-50%, -50%); /* Fareyi tam ortalar */
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 10%;
+            position: relative;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem); /* Dinamik font boyutu */
+            font-weight: 900;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #7f5af0, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 600px;
+        }
+
+        .btn {
+            margin-top: 40px;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: 1px solid #7f5af0;
+            background: transparent;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: #7f5af0;
+            box-shadow: 0 0 30px rgba(127, 90, 240, 0.6);
+        }
+
+        /* Glass Cards */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.5s all ease;
+            transform: translateY(30px);
+            opacity: 0;
+            text-align: center;
+        }
+
+        .card.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .card:hover {
+            border: 1px solid #7f5af0;
+            background: rgba(127, 90, 240, 0.05);
+            transform: translateY(-10px) !important;
+        }
+
+        /* Titles */
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .process-step {
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: 0.8s all ease;
+        }
+
+        .process-step.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .process-step h3 {
+            color: #00f5ff;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            color: #444;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="loader"><span>ZOİ</span></div>
+<div class="glow" id="glow"></div>
+
+<section class="hero">
+    <h1>ZOİ MEDYA</h1>
+    <p>İşletmenizin kaderi değişmek üzere. Premium markalar sıradan ajanslarla çalışmaz.</p>
+    <button class="btn">Strateji Görüşmesi Al</button>
+</section>
+
+<section id="hizmetler">
+    <h2>Hizmetlerimiz</h2>
+    <div class="services">
+        <div class="card">Dijital Pazarlama</div>
+        <div class="card">Sosyal Medya Yönetimi</div>
+        <div class="card">PR & Reklam Danışmanlığı</div>
+        <div class="card">Sanatçı Dijital Stratejisi</div>
+        <div class="card">AI Agent Sistemleri</div>
+        <div class="card">AI Otomasyon Sistemleri</div>
+        <div class="card">Grafik Tasarım</div>
+        <div class="card">Web Tasarım</div>
+    </div>
+</section>
+
+<section>
+    <h2>AI Agent & Otomasyon</h2>
+    <p style="max-width:700px;color:#aaa; font-size: 1.1rem;">
+        Siz uyurken bile müşteri kazandıran sistem. 
+        Hızlı cevap, güçlü imaj, kesintisiz satış. Teknolojiyi sadece kullanmıyoruz, onu markanızın kölesi yapıyoruz.
+    </p>
+</section>
+
+<section>
+    <h2>Süreç</h2>
+    <div class="process-step">
+        <h3>1. Kurulum</h3>
+        <p>Hesap bağlantıları, reklam paneli ve güvenlik ayarları titizlikle tamamlanır.</p>
+    </div>
+    <div class="process-step">
+        <h3>2. İlk Ay</h3>
+        <p>Reklamlar öğrenme sürecine girer, algoritma markanızı tanır ve ilk veriler analiz edilir.</p>
+    </div>
+    <div class="process-step">
+        <h3>3. Büyüme</h3>
+        <p>Markalaşma etkisi netleşir, verimli kanallar üzerinden ölçekleme ve dominasyon başlar.</p>
+    </div>
+</section>
+
+<footer>
+    © 2026 ZOİ Medya — Premium Digital Agency
+</footer>
+
+<script>
+    /* Loader */
+    window.addEventListener("load", () => {
+        const loader = document.querySelector(".loader");
+        setTimeout(() => {
+            loader.classList.add("hidden");
+        }, 1500);
+    });
+
+    /* Mouse Glow */
+    const glow = document.getElementById("glow");
+    document.addEventListener("mousemove", (e) => {
+        // requestAnimationFrame performansı artırır
+        requestAnimationFrame(() => {
+            glow.style.left = e.clientX + "px";
+            glow.style.top = e.clientY + "px";
+        });
+    });
+
+    /* Scroll Reveal */
+    const revealElements = document.querySelectorAll(".card, .process-step");
+
+    const scrollReveal = () => {
+        revealElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            if (rect.top < windowHeight - 50) {
+                el.classList.add("show");
+            }
+        });
+    };
+
+    // Hem kaydırınca hem sayfa ilk açıldığında kontrol et
+    window.addEventListener("scroll", scrollReveal);
+    window.addEventListener("load", scrollReveal);
+
+</script>
+
+</body>
+</html>
