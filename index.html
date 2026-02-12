@@ -87,6 +87,10 @@
             transition: 0.3s;
             background: rgba(255, 42, 42, 0.1);
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .contact-btn:hover {
@@ -362,9 +366,9 @@
             user-select: none;
         }
 
-        /* CHAT MODAL STYLES (YENİ EKLENEN KISIM) */
+        /* CHAT MODAL STYLES */
         .chat-modal-overlay {
-            display: none; /* Başlangıçta gizli */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -437,12 +441,10 @@
     <div class="chat-modal-overlay" id="chatModal">
         <div class="chat-box">
             <span class="close-chat" onclick="closeChat()">&times;</span>
-            
             <iframe 
                 src="https://apn8qwzf.rpcl.app/webhook/0ccc65a6-f1b1-4dd5-b58c-4864a11a7eca/chat" 
                 class="chat-iframe">
             </iframe>
-            
         </div>
     </div>
 
@@ -469,7 +471,9 @@
         </h1>
         <p>Premium markalar sıradan ajanslarla çalışmaz. Geleceğin dijital stratejilerini bugünden kuruyoruz.</p>
         
-        <a href="#" onclick="openChat(); return false;" class="contact-btn" style="width: fit-content; margin-top: 20px; font-size: 1.1rem; padding: 15px 40px;">Strateji Görüşmesi Al</a>
+        <a href="https://wa.me/905550000000?text=Merhaba,%20ZOİ%20Medya%20ile%20strateji%20görüşmesi%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="contact-btn" style="width: fit-content; margin-top: 20px; font-size: 1.1rem; padding: 15px 40px;">
+            <i class="fab fa-whatsapp"></i> Strateji Görüşmesi Al
+        </a>
     </section>
 
     <div class="marquee">
@@ -579,7 +583,10 @@
     <footer id="contact">
         <div class="footer-cta">
             <h2>İşletmenizin Kaderini<br><span>Değiştirmeye</span> Hazır Mısınız?</h2>
-            <a href="mailto:zoimedya@gmail.com" class="footer-btn contact-btn" style="background: white; color: black; border:none; font-weight:800;">HEMEN BAŞLA</a>
+            
+            <a href="https://wa.me/905550000000?text=Merhaba,%20Hemen%20başlamak%20için%20yazıyorum." target="_blank" class="footer-btn contact-btn" style="background: white; color: black; border:none; font-weight:800;">
+                HEMEN BAŞLA
+            </a>
         </div>
         
         <div class="footer-logo">
@@ -604,12 +611,12 @@
             observer.observe(el);
         });
 
-        // CHAT MODAL FONKSİYONLARI (YENİ)
+        // CHAT AÇMA/KAPAMA
         function openChat() {
             const modal = document.getElementById('chatModal');
-            modal.style.display = 'flex'; // Önce display aç
+            modal.style.display = 'flex'; 
             setTimeout(() => {
-                modal.classList.add('active'); // Sonra animasyon sınıfını ekle
+                modal.classList.add('active'); 
             }, 10);
         }
 
@@ -618,10 +625,9 @@
             modal.classList.remove('active');
             setTimeout(() => {
                 modal.style.display = 'none';
-            }, 300); // Animasyon bitince gizle
+            }, 300); 
         }
 
-        // Modal dışına tıklayınca kapatma özelliği
         document.getElementById('chatModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeChat();
